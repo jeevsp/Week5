@@ -1,0 +1,57 @@
+Part 2: Data Wrangling and EDA for NLP Workloads
+Dataset Selection
+For this project, I have selected a dataset from Kaggle titled "Amazon Consumer Reviews of Amazon Products". This dataset contains 5,000 reviews along with metadata such as ratings, recommendations, and review titles. The key column for our analysis is reviews.text, which contains the textual reviews.
+
+Preprocessing the Dataset
+The textual data was cleaned and prepared for analysis through the following steps:
+
+Lowercasing: All text was converted to lowercase for consistency.
+Removing Special Characters and Numbers: Non-alphabetic characters were stripped out to focus only on meaningful words.
+Stopword Removal: Common English stopwords (e.g., "the", "and", "is") were removed to highlight significant terms.
+Stemming and Lemmatization: While stemming was not directly applied, a simplified lemmatization approach was used to normalize words.
+Example of cleaned text:
+
+Original: "I absolutely love this product! It's fantastic and easy to use."
+Cleaned: "absolutely love product fantastic easy use"
+Exploratory Data Analysis (EDA)
+1. Word Cloud
+A word cloud was generated to visualize the most frequent terms across all reviews. Words like "product", "easy", "love", and "works" were prominently featured, reflecting positive sentiments in the dataset.
+
+2. N-Gram Frequency Plots
+I explored unigrams and bigrams to identify commonly used phrases:
+
+Unigrams: Words like "love", "great", "easy", and "use" appeared frequently, indicating a positive bias in reviews.
+Bigrams: Common phrases included "easy use", "great product", and "highly recommend".
+3. Sentiment Distribution
+Using the reviews.rating column, I plotted a bar chart showing the distribution of ratings:
+
+The majority of reviews had a rating of 4 or 5, indicating overall satisfaction with the products.
+Fewer reviews had low ratings (1 or 2), but these contained words like "poor", "return", and "broken".
+Key Insights
+Positive Trends:
+
+Frequent words like "love", "great", and "easy" indicate customer satisfaction.
+Phrases such as "highly recommend" and "works well" were dominant among positive reviews.
+Negative Trends:
+
+Lower-rated reviews often mentioned issues like "poor quality" or "didn't work".
+Words like "return" and "broken" were more common in these reviews.
+Overall Sentiment Bias:
+
+The dataset shows a strong positive bias, as most ratings are 4 or higher.
+Feature Refinement for Modeling
+To prepare the data for machine learning, I refined the following features:
+
+Textual Features:
+
+TF-IDF Vectors: Captures term importance and reduces the influence of commonly used words.
+Bigrams: Useful for understanding context (e.g., "easy use" vs. "poor quality").
+Metadata Features:
+
+Sentiment Scores: Derived from reviews.rating as a numerical target.
+Recommendation Flag: The reviews.doRecommend column provides additional context on customer satisfaction.
+Feature Selection Rationale
+TF-IDF Vectors: These provide a robust numerical representation of text, highlighting significant terms for predictive models.
+Bigrams: Adding context to single words enhances understanding of customer intent.
+Ratings as Target: Ratings serve as a direct measure of sentiment, crucial for supervised learning tasks.
+Recommendation Flag: Offers complementary information for understanding customer behavior.
